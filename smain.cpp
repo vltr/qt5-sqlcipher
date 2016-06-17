@@ -1,13 +1,21 @@
 #include <qsqldriverplugin.h>
 #include <qstringlist.h>
-#include "qt-private/qsql_sqlite_p.h"
+#include "qsql_sqlite_p.h"
 
 QT_BEGIN_NAMESPACE
+
+/*
+#if defined(FUCKOFF)
+# define IMGDLLSHARED_EXPORT Q_DECL_EXPORT
+#else
+# define IMGDLLSHARED_EXPORT Q_DECL_IMPORT
+#endif
+*/
 
 class QSQLCipherDriverPlugin : public QSqlDriverPlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QSqlDriverFactoryInterface" FILE "sqlcipher.json")
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QSqlDriverFactoryInterface" FILE "qsqlcipher.json")
 
 public:
     QSQLCipherDriverPlugin();

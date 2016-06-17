@@ -608,3 +608,4 @@ xcuserdata
 *.moved-aside
 *.xcuserstate
 
+sqlcipher-src/

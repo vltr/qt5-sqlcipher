@@ -55,7 +55,7 @@ CONFIG(debug, debug|release) {
 DRIVER_SRCDIR = $$shell_quote($$shell_path($$MY_QT_SRCDIR/src/sql/drivers/sqlite))
 PLUGIN_SRCDIR = $$shell_quote($$shell_path($$MY_QT_SRCDIR/src/plugins/sqldrivers))
 
-SQLCIPHER_SRCDIR = $$shell_quote($$shell_path(E:/includes/sqlite3))
+SQLCIPHER_SRCDIR = $$shell_quote($$shell_path($$PWD/sqlcipher-src))
 OPENSSL_ROOT = $$shell_quote($$shell_path(E:/lib/openssl-1.0.2h-msvc2013-x86-release-nasm))
 
 INCLUDEPATH += $$shell_quote($$shell_path($$DRIVER_SRCDIR))

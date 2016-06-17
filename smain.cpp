@@ -4,13 +4,6 @@
 
 QT_BEGIN_NAMESPACE
 
-/*
-#if defined(FUCKOFF)
-# define IMGDLLSHARED_EXPORT Q_DECL_EXPORT
-#else
-# define IMGDLLSHARED_EXPORT Q_DECL_IMPORT
-#endif
-*/
 
 class QSQLCipherDriverPlugin : public QSqlDriverPlugin
 {

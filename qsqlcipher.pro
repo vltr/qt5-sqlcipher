@@ -142,11 +142,11 @@ win32:{
     SQLCIPHER_DEFINES += -DSQLITE_ENABLE_COLUMN_METADATA=1
 
     # Misc Flags
-    SQLCIPHER_INCLUDES *= -I$$shell_quote($$shell_path(E:/includes/sqlite3))
+    SQLCIPHER_INCLUDES *= -I$$SQLCIPHER_SRCDIR
     SQLCIPHER_INCLUDES += -I$$shell_quote($$shell_path($$OPENSSL_ROOT/include))
 
     # Don't touch flags
-    SQLCIPHER_C *= /c $$shell_quote($$shell_path(E:/includes/sqlite3/sqlite3.c))
+    SQLCIPHER_C *= /c $$shell_quote($$shell_path($$SQLCIPHER_SRCDIR/sqlite3.c))
     SQLCIPHER_C += -nologo -MDd -fp:precise -W4 -Fo$$SQLCIPHER_OBJECT
 
     # Creating command ...

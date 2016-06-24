@@ -610,3 +610,5 @@ xcuserdata
 
 sqlcipher-src/
 .qmake.conf
+sqlcipher-debug/
+sqlcipher-release/

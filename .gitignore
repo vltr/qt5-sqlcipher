@@ -609,3 +609,4 @@ xcuserdata
 *.xcuserstate
 
 sqlcipher-src/
+.qmake.conf

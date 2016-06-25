@@ -17,11 +17,16 @@ The upper statement was made by the original author, [sijk](https://github.com/s
 ## Tested platforms
 
 - MS Windows XP (compat), 7 onwards (dev)
-- Posix
-- Mac OSX?
+- Posix (yet to be made)
+- Mac OSX? (yet to be made, if i have access to one!)
+
+## Compiling
+
+### Windows
+
+To compile SQLCipher plugin for QT, I created (with the help of many users from stackoverflow) a PS script, `prepare-env.ps1`, that downloads, extracts and creates the necessary source code of SQLCipher to be compiled using `qmake` and friends.
 
 ## Deployment
 
 Follow [Qt's plugin deployment guide](http://doc.qt.io/qt-5/deployment-plugins.html).
-In short, put the plugin at ``sqldrivers/libqsqlcipher.so`` relative to your
-executable.
+In short, put the plugin at ``sqldrivers\qsqlcipher.dll`` relative to your executable, with OpenSSL and zlib DLLs in the same directory as your executable.

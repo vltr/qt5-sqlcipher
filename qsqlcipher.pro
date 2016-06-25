@@ -28,12 +28,11 @@ win32 {
 QTBASE_SRC = $$shell_quote($$shell_path($$QTBASE_SRC))
 DRIVER_SRCDIR = $$shell_quote($$shell_path($$QTBASE_SRC/src/sql/drivers/sqlite))
 PLUGIN_SRCDIR = $$shell_quote($$shell_path($$QTBASE_SRC/src/plugins/sqldrivers))
+SQLCIPHER_SRCDIR = $$shell_quote($$shell_path($$_PRO_FILE_PWD_/sqlcipher-src))
 
 CONFIG(debug, debug|release) {
-    SQLCIPHER_SRCDIR = $$shell_quote($$shell_path($$_PRO_FILE_PWD_/sqlcipher-debug))
     OPENSSL_PATH = $$shell_quote($$shell_path($$(CUSTOM_LIBPATH)/openssl/1.0.2h/msvc2013-x86-asm-shared-debug))  # for now this is set by hand
 } else {
-    SQLCIPHER_SRCDIR = $$shell_quote($$shell_path($$_PRO_FILE_PWD_/sqlcipher-release))
     OPENSSL_PATH = $$shell_quote($$shell_path($$(CUSTOM_LIBPATH)/openssl/1.0.2h/msvc2013-x86-asm-shared-release))  # for now this is set by hand
 }
 
@@ -80,12 +79,13 @@ linux {  # TODO
 #    }
 } else:win32 {
     OBJECTS += $$SQLCIPHER_OBJECT
-    QMAKE_CFLAGS += /D_USING_V120_SDK71_
+    QMAKE_CFLAGS += /D_USING_V110_SDK71_
     QMAKE_CFLAGS += -fp:precise
-    QMAKE_CXXFLAGS += /D_USING_V120_SDK71_
+    QMAKE_CXXFLAGS += /D_USING_V110_SDK71_
 
     equals(WINXP_COMPAT, 1):{
-        QMAKE_LFLAGS += /SUBSYSTEM:WINDOWS,5.01
+        QMAKE_LFLAGS_WINDOWS += /SUBSYSTEM:WINDOWS,5.01
+        QMAKE_LFLAGS_CONSOLE += /SUBSYSTEM:CONSOLE,5.01
     }
 
     QMAKE_LFLAGS += $$shell_quote($$shell_path($$OPENSSL_PATH/lib/libeay32.lib))
@@ -119,7 +119,7 @@ include($$PLUGIN_SRCDIR/qsqldriverbase.pri)
 win32:{
     # Compile SQLCipher as object (if anyone have a better idea ...)
 
-    SQLCIPHER_DEFINES *= -D_USING_V120_SDK71_
+    SQLCIPHER_DEFINES *= -D_USING_V110_SDK71_
     SQLCIPHER_DEFINES += -D_CRT_SECURE_NO_WARNINGS
     SQLCIPHER_DEFINES += -DNO_TCL=1
     SQLCIPHER_DEFINES += -DSQLITE_OS_WIN=1
